@@ -1,0 +1,911 @@
+{
+	"info": {
+		"_postman_id": "2494004c-9e2e-44bd-9fd0-6d8a1e4675b9",
+		"name": "driftingbooks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"Luuukas\",\n\t\"password\":\"Chong516\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/user/login/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取注册的验证码",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.101.61.245/user/send_sms_view?telephone=13502952317",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"send_sms_view"
+							],
+							"query": [
+								{
+									"key": "telephone",
+									"value": "13502952317"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "注册",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"Luuukas\",\n\t\"password\":\"Chong516\",\n\t\"phonenumber\":\"13502952317\",\n\t\"code\":\"8796\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/user/register/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.101.61.245/user/get_user_infos/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"get_user_infos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改地址",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"new_address\": \"{\\\"address\\\":[{\\\"contry\\\":\\\"中国\\\",\\\"province\\\":\\\"广东\\\",\\\"city\\\":\\\"汕头\\\",\\\"district\\\":\\\"金平\\\",\\\"specific\\\":\\\"汕头大学\\\",\\\"name\\\":\\\"Luuukas\\\",\\\"phonenumber\\\":\\\"13502952317\\\",\\\"isDefault\\\":true},{\\\"contry\\\":\\\"中国\\\",\\\"province\\\":\\\"广东\\\",\\\"city\\\":\\\"汕头\\\",\\\"district\\\":\\\"金平\\\",\\\"specific\\\":\\\"汕头大学\\\",\\\"name\\\":\\\"Luuukas\\\",\\\"phonenumber\\\":\\\"13502952317\\\",\\\"isDefault\\\":false},]}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/user/update_addresses/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"update_addresses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取所有收藏信息",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://47.101.61.245/user/get_star_infos/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"get_star_infos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加收藏",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"botid\":8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/user/add_star/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"add_star",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消收藏",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"botid\":7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/user/del_star/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"del_star",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取公钥",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.101.61.245/user/get_public_key/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"get_public_key",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取修改密码/手机号的验证码",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.101.61.245/user/send_sms_view2/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"send_sms_view2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改密码",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://47.101.61.245/user/change_password/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"user",
+								"change_password",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "管理员定义书本积分值",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"isbn\":\"9787506365437\",\n\t\"neededcredit\": 46\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/book/define_book_neededcredit/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"book",
+								"define_book_neededcredit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id获取图书信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bokid\":10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/book/get_book_infos/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"book",
+								"get_book_infos",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bottle",
+			"item": [
+				{
+					"name": "发布一个漂流瓶",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "isbn",
+									"value": "9787506365437",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "好好活着！",
+									"type": "text"
+								},
+								{
+									"key": "img_obj",
+									"type": "file",
+									"src": "/home/luuukas/Pictures/gdmlock-1.jpg"
+								},
+								{
+									"key": "sendto",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://47.101.61.245/bottle/add_bottle/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"bottle",
+								"add_bottle",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "随机获取漂流瓶",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idx\":7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/bottle/vis_bottle/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"bottle",
+								"vis_bottle",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "对换瓶子对应的图书",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"botid\":8,\n\t\"address\":\"广东佛山\",\n\t\"name\":\"Yc\",\n\t\"phonenumber\":\"13502952317\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/bottle/pick_bottle_book/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"bottle",
+								"pick_bottle_book",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取特定漂流瓶",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"botid\":7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/bottle/get_bottle/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"bottle",
+								"get_bottle",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "用户填写完整的寄书快递信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"transactioncode\":\"RECE202003051819217549686\",\n\t\"expresscompany\":1,\n\t\"trackingnumber\":\"ASDF12345678\",\n\t\"name\":\"特离谱\",\n\t\"address\":\"美国白宫\",\n\t\"phonenumber\":\"13502952317\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/order/fill_receive_order/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"order",
+								"fill_receive_order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "管理员同意收到的图书入库",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"transactioncode\":\"RECE202003051409062127461\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/order/accept_book_order/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"order",
+								"accept_book_order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户申请取回被拒收的图书",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"botid\":7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/order/retrive_book/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"order",
+								"retrive_book",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "管理员拒绝收到的图书入库",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"transactioncode\":\"RECE202003051819217549686\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/order/reject_book_order/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"order",
+								"reject_book_order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过订单号查询订单",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"transactioncode\":\"RECE202003051437596257436\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/order/get_order/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"order",
+								"get_order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户相关的所有订单",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://47.101.61.245/order/get_orders_of_user/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"order",
+								"get_orders_of_user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "管理员填写完整的寄书快递信息（非取回）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"transactioncode\":\"RECE202003051437596257436\",\n\t\"expresscompany\":1,\n\t\"trackingnumber\":\"ASDF12345678\",\n\t\"name\":\"特离谱\",\n\t\"address\":\"美国白宫\",\n\t\"phonenumber\":\"13502952317\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/order/fill_acquire_order/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"order",
+								"fill_acquire_order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "管理员填写完整的寄书快递信息（取回）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"transactioncode\":\"RETR202003051813033333302\",\n\t\"expresscompany\":1,\n\t\"trackingnumber\":\"ASDF12345678\",\n\t\"name\": \"\",\n\t\"address\": \"\",\n\t\"phonenumber\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.101.61.245/order/fill_retrive_order/",
+							"protocol": "http",
+							"host": [
+								"47",
+								"101",
+								"61",
+								"245"
+							],
+							"path": [
+								"order",
+								"fill_retrive_order",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

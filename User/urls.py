@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf.urls import url
 
 import User.views as userviews
+from User.modifyInfo import sendSms2BindedPhone, changePassword, changePhonenumber
 
 urlpatterns = [
     path('send_sms_view/', userviews.send_sms_view, name='send_sms_view'),
@@ -29,4 +30,7 @@ urlpatterns = [
     path('add_star/', userviews.add_star, name='add_star'),
     path('del_star/', userviews.del_star, name='del_star'),
     path('get_public_key/', userviews.get_public_key, name='get_public_key'),
+    path('send_sms_view2/', sendSms2BindedPhone, name='send_sms_view2'),
+    path('change_password/', changePassword, name='change_password'),
+    path('change_phonenumber/', changePhonenumber, name='change_phonenumber'),
 ]

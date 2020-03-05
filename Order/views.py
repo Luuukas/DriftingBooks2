@@ -39,6 +39,81 @@ def fill_receive_order(request):
             "msg" : "success" 
             }), content_type="application/json")
 
+def fill_retrive_order(request):
+    if request.method == 'POST':
+        username = request.session.get("username")
+        user = User.objects.get(username=username)
+        json_result = json.loads(request.body)
+        if not user.issuper:
+            return HttpResponse(json.dumps({ 
+            "msg":"has not right"
+            }), content_type="application/json")
+        trancode = json_result['transactioncode']
+        retrorder = retriveOrder.objects.filter(transactioncode=trancode).first()
+        if not retrorder:
+            return HttpResponse(json.dumps({ 
+                "msg":"no such order"
+            }), content_type="application/json")
+        if not retrorder.order_state==0:
+            return HttpResponse(json.dumps({ 
+                "msg":"not a incomplete order"
+            }), content_type="application/json")
+
+        retrorder.expresscompany = json_result['expresscompany']
+        retrorder.trackingnumber = json_result['trackingnumber']
+        retrorder.order_state = 1
+        retrorder.dealtime = datetime.now()
+        if json_result['name'] != "":
+            retrorder.to_name = json_result['name']
+        if json_result['address'] != "":
+            retrorder.to_address = json_result['address']
+        if json_result['phonenumber'] != "":
+            retrorder.to_phonenumber = json_result['phonenumber']
+        retrorder.save()
+
+        retrorder.related_bottle.book_state = 5
+        retrorder.related_bottle.save()
+
+        return HttpResponse(json.dumps({ 
+            "msg" : "success"
+            }), content_type="application/json")
+
+def fill_acquire_order(request):
+    if request.method == 'POST':
+        username = request.session.get("username")
+        user = User.objects.get(username=username)
+        json_result = json.loads(request.body)
+        if not user.issuper:
+            return HttpResponse(json.dumps({ 
+            "msg":"has not right"
+            }), content_type="application/json")
+        trancode = json_result['transactioncode']
+        acquorder = acquireOrder.objects.filter(transactioncode=trancode).first()
+        if not acquorder:
+            return HttpResponse(json.dumps({ 
+                "msg":"no such order"
+            }), content_type="application/json")
+        if not acquorder.order_state==0:
+            return HttpResponse(json.dumps({ 
+                "msg":"not a incomplete order"
+            }), content_type="application/json")
+
+        acquorder.expresscompany = json_result['expresscompany']
+        acquorder.trackingnumber = json_result['trackingnumber']
+        acquorder.order_state = 1
+        acquorder.dealtime = datetime.now()
+        acquorder.to_name = json_result['name']
+        acquorder.to_address = json_result['address']
+        acquorder.to_phonenumber = json_result['phonenumber']
+        acquorder.save()
+
+        acquorder.related_bottle.book_state = 4
+        acquorder.related_bottle.save()
+
+        return HttpResponse(json.dumps({ 
+            "msg" : "success" 
+            }), content_type="application/json")
+
 def accept_book_order(request):
     if request.method == 'POST':
         username = request.session.get("username")
@@ -56,10 +131,20 @@ def accept_book_order(request):
                 "msg":"not a complete order"
             }), content_type="application/json")
 
+        if receorder.related_bottle.related_book.neededcredit==-1:
+            return HttpResponse(json.dumps({ 
+                "msg":"the related book hasn't been defined neededcredit!",
+                "isbn":receorder.related_bottle.related_book.isbn,
+            }), content_type="application/json")
+
         receorder.related_bottle.book_state = 2
         receorder.dealtime = datetime.now()
         receorder.save()
         receorder.related_bottle.save()
+
+        user.credit = user.credit + receorder.related_bottle.related_book.neededcredit
+        user.save()
+
         return HttpResponse(json.dumps({ 
             "msg":"success"
             }), content_type="application/json")
@@ -112,7 +197,8 @@ def retrive_book(request):
         bottle.book_state = 0
         bottle.save()
         return HttpResponse(json.dumps({ 
-            "msg":"success"
+            "msg":"success",
+            "transactioncode":retrorder.transactioncode
             }), content_type="application/json")
 
 def get_order_infos(order, trancode):

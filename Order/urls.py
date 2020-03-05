@@ -21,6 +21,8 @@ import Order.views as orderviews
 
 urlpatterns = [
     path('fill_receive_order/', orderviews.fill_receive_order, name='fill_receive_order'),
+    path('fill_retrive_order/', orderviews.fill_retrive_order, name='fill_retrive_order'),
+    path('fill_acquire_order/', orderviews.fill_acquire_order, name='fill_acquire_order'),
     path('accept_book_order/', orderviews.accept_book_order, name='accept_book_order'),
     path('reject_book_order/', orderviews.reject_book_order, name='reject_book_order'),
     path('reject_book_order/', orderviews.reject_book_order, name='reject_book_order'),

@@ -97,15 +97,18 @@ def add_bottle(request):
         except Exception:
             img_url = ""
         bottle.photos = img_url
-        bottle.book_sendto = json_result['sendto']
-        bottle.save()
+        bottle.book_sendto = request.POST.get('sendto')
 
-        if json_result['sendto']!=-1:
+        if request.POST.get('sendto')!=-1:
             receorder = receiveOrder.objects.create(related_bottle=bottle, related_user=user)
+            bottle.book_state = 1
             receorder.save()
 
+        bottle.save()
+
         return HttpResponse(json.dumps({
-            "msg" : "ok" 
+            "msg" : "ok",
+            "transactioncode" : (receorder.transactioncode if receorder else None),
             }), content_type="application/json")
 
 def can_pick(bottle):

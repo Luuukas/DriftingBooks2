@@ -10,4 +10,4 @@ class Bottle(models.Model):
     timeouthandle = models.BooleanField(default=True)
     book_sendto = models.IntegerField(default=0)  # 赠送对象，0：未给个人，<0：已确定机构代号, >0:已给个人uid
     upload_datetime = models.DateTimeField(default=timezone.now)
-    book_state = models.IntegerField(default=0) # 供个人查看的状态, 1：未入库 2：已入库 3：已拒收 4：已捐赠
+    book_state = models.IntegerField(default=0) # 供个人查看的状态, 1：未入库 2：已入库 3：已拒收 4：已捐赠 5：已取回
