@@ -1,0 +1,42 @@
+2020/03/06 12:43:16 [crit] 5003#5003: *1 connect() to unix://root/DriftingBooks/driftingbooks/mysite.sock failed (13: Permission denied) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix://root/DriftingBooks/driftingbooks/mysite.sock:", host: "47.101.61.245"
+2020/03/06 12:44:47 [crit] 5003#5003: *5 connect() to unix://root/DriftingBooks/driftingbooks/mysite.sock failed (13: Permission denied) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix://root/DriftingBooks/driftingbooks/mysite.sock:", host: "47.101.61.245"
+2020/03/06 12:46:48 [crit] 5003#5003: *7 connect() to unix://root/DriftingBooks/driftingbooks/mysite.sock failed (13: Permission denied) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix://root/DriftingBooks/driftingbooks/mysite.sock:", host: "47.101.61.245"
+2020/03/06 12:52:17 [crit] 5165#5165: *1 connect() to unix://var/mysite.sock failed (13: Permission denied) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix://var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 12:53:07 [crit] 5191#5191: *1 connect() to unix:///var/mysite.sock failed (13: Permission denied) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix:///var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 12:54:28 [crit] 5191#5191: *4 connect() to unix:///var/mysite.sock failed (13: Permission denied) while connecting to upstream, client: 176.196.106.176, server: localhost, request: "GET / HTTP/1.0", upstream: "uwsgi://unix:///var/mysite.sock:", host: "stuacm.club"
+2020/03/06 12:59:12 [error] 5272#5272: *1 connect() to unix:///var/mysite.sock failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix:///var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 13:07:34 [error] 5362#5362: *2 connect() to unix:///var/mysite.sock failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix:///var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 13:08:47 [error] 5497#5497: *1 connect() to unix://var/mysite.sock failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix://var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 13:10:42 [error] 5536#5536: *1 connect() to unix:/var/mysite.sock failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix:/var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 13:13:49 [error] 5536#5536: *5 connect() to unix:/var/mysite.sock failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix:/var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 13:14:26 [crit] 5589#5589: *1 connect() to unix://my/var/mysite.sock failed (2: No such file or directory) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix://my/var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 13:14:51 [error] 5613#5613: *1 connect() to unix://var/mysite.sock failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix://var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 13:18:16 [error] 5613#5613: *4 connect() to unix://var/mysite.sock failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://unix://var/mysite.sock:", host: "47.101.61.245"
+2020/03/06 13:22:30 [error] 5680#5680: *6 connect() failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://127.0.0.1:8001", host: "47.101.61.245"
+2020/03/06 13:28:00 [error] 5680#5680: *9 connect() failed (111: Connection refused) while connecting to upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://127.0.0.1:8001", host: "47.101.61.245"
+2020/03/06 13:33:57 [error] 5984#5984: *1 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 120.230.63.37, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://127.0.0.1:8001", host: "47.101.61.245"
+2020/03/10 11:43:15 [error] 1498#1498: *1 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 120.230.63.221, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://127.0.0.1:8001", host: "47.101.61.245"
+2020/03/10 11:43:26 [error] 1498#1498: *1 upstream prematurely closed connection while reading response header from upstream, client: 120.230.63.221, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://127.0.0.1:8001", host: "47.101.61.245", referrer: "http://47.101.61.245/"
+2020/03/10 11:48:26 [error] 1661#1661: *1 upstream prematurely closed connection while reading response header from upstream, client: 120.230.63.221, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://127.0.0.1:8001", host: "47.101.61.245"
+2020/03/10 11:50:27 [emerg] 1703#1703: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:27 [emerg] 1703#1703: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:27 [emerg] 1703#1703: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:27 [emerg] 1703#1703: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:27 [emerg] 1703#1703: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:27 [emerg] 1703#1703: still could not bind()
+2020/03/10 11:50:43 [emerg] 1716#1716: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:43 [emerg] 1716#1716: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:43 [emerg] 1716#1716: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:43 [emerg] 1716#1716: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:43 [emerg] 1716#1716: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 11:50:43 [emerg] 1716#1716: still could not bind()
+2020/03/10 11:52:08 [error] 1731#1731: *1 upstream timed out (110: Connection timed out) while connecting to upstream, client: 120.230.63.221, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://47.101.61.245:8001", host: "47.101.61.245"
+2020/03/10 11:54:47 [error] 1786#1786: *4 upstream timed out (110: Connection timed out) while connecting to upstream, client: 120.230.63.221, server: localhost, request: "GET / HTTP/1.1", upstream: "http://47.101.61.245:8001/", host: "47.101.61.245"
+2020/03/10 11:58:52 [error] 1786#1786: *7 upstream timed out (110: Connection timed out) while connecting to upstream, client: 117.181.15.204, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "http://47.101.61.245:8001/favicon.ico", host: "www.stuacm.club"
+2020/03/10 12:22:47 [emerg] 2104#2104: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 12:22:47 [emerg] 2104#2104: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 12:22:47 [emerg] 2104#2104: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 12:22:47 [emerg] 2104#2104: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 12:22:47 [emerg] 2104#2104: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2020/03/10 12:22:47 [emerg] 2104#2104: still could not bind()
+2020/03/10 12:24:22 [error] 2117#2117: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 120.230.63.221, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://0.0.0.0:8001", host: "47.101.61.245"

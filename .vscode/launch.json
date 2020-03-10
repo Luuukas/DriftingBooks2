@@ -12,7 +12,7 @@
             "console": "integratedTerminal",
             "args":[
                 "runserver",
-                "8000",
+                "8001",
             ],
             "django": true,
         }

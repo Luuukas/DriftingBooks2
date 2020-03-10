@@ -13,6 +13,8 @@ import os
 from django.conf import settings
 import time
 
+from django.db import transaction
+
 # Create your views here.
 def get_bottle_num(request):
     bottlenum = Bottle.objects.all().count()
@@ -75,41 +77,42 @@ def add_bottle(request):
             return HttpResponse(json.dumps({
                  "msg" : "no such book" 
                  }), content_type="application/json")
-        bottle = Bottle.objects.create(related_book=book, related_user=user)
-        # 把文本写入txt中存储
-        article = request.POST.get('description')
-        article_name = "des_"+str(time.time())+".txt"
-        article_path = os.path.join(settings.BASE_DIR, 'static', 'des', article_name)
-        with open(article_path, 'w') as f:
-            f.write(article)
-        bottle.article = article_path
-        # 存储图片，有可能没有图片
-        try:
-            img_obj = request.FILES.get('img_obj')
-            postfix = img_obj.name.split('.')[1]
-            img_name = "img_"+str(time.time())+"."+postfix
-            img_path = os.path.join(settings.BASE_DIR, 'static', 'img', img_name)
-            img_url = os.path.join(settings.SERVER_DIR, img_name)
-            with open(img_path, 'wb') as f:
-                for chunk in img_obj.chunks():
-                    f.write(chunk)
-                    f.flush()
-        except Exception:
-            img_url = ""
-        bottle.photos = img_url
-        bottle.book_sendto = request.POST.get('sendto')
+        with transaction.atomic():
+            bottle = Bottle.objects.create(related_book=book, related_user=user)
+            # 把文本写入txt中存储
+            article = request.POST.get('description')
+            article_name = "des_"+str(time.time())+".txt"
+            article_path = os.path.join(settings.BASE_DIR, 'static', 'des', article_name)
+            with open(article_path, 'w') as f:
+                f.write(article)
+            bottle.article = article_path
+            # 存储图片，有可能没有图片
+            try:
+                img_obj = request.FILES.get('img_obj')
+                postfix = img_obj.name.split('.')[1]
+                img_name = "img_"+str(time.time())+"."+postfix
+                img_path = os.path.join(settings.BASE_DIR, 'static', 'img', img_name)
+                img_url = os.path.join(settings.SERVER_DIR, img_name)
+                with open(img_path, 'wb') as f:
+                    for chunk in img_obj.chunks():
+                        f.write(chunk)
+                        f.flush()
+            except Exception:
+                img_url = ""
+            bottle.photos = img_url
+            bottle.book_sendto = request.POST.get('sendto')
 
-        if request.POST.get('sendto')!=-1:
-            receorder = receiveOrder.objects.create(related_bottle=bottle, related_user=user)
-            bottle.book_state = 1
-            receorder.save()
+            if request.POST.get('sendto')!=-1:
+                receorder = receiveOrder.objects.create(related_bottle=bottle, related_user=user)
+                bottle.book_state = 1
+                receorder.save()
 
-        bottle.save()
+            bottle.save()
 
-        return HttpResponse(json.dumps({
-            "msg" : "ok",
-            "transactioncode" : (receorder.transactioncode if receorder else None),
-            }), content_type="application/json")
+            return HttpResponse(json.dumps({
+                "msg" : "ok",
+                "transactioncode" : (receorder.transactioncode if receorder else None),
+                }), content_type="application/json")
 
 def can_pick(bottle):
     return (bottle.book_state==2 and bottle.book_sendto==0 and bottle.related_book.neededcredit>-1)
